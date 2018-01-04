@@ -11,12 +11,16 @@ public class User {
 	@GeneratedValue
 	private Long id;
 	
-	@Column(nullable=false, length=20)
+	@Column(nullable=false, length=20, unique=true)
 	private String userId;
 	
 	private String password;
 	private String name;
 	private String email;
+
+	public Long getId() {
+		return id;
+	};
 
 	public void setUserId(String userId) {
 		this.userId = userId;
@@ -45,5 +49,9 @@ public class User {
 		return "User [userId=" + userId + ", password=" + password + ", name=" + name + ", email=" + email
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
 				+ "]";
+	}
+
+	public String getPassword() {
+		return password;
 	}
 }
